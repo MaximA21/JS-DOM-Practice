@@ -31,3 +31,13 @@ const btnScroll = document.querySelector(".btn--scroll-to")
  document.getElementById("section--1").scrollIntoView({behavior: "smooth"})})
 
 
+document.querySelector(".nav__links").addEventListener("click", function (evt) {
+    evt.preventDefault()
+    if (evt.target.classList.contains("nav__link")) {
+        const id = evt.target.getAttribute("href")
+        document.querySelector(id).scrollIntoView({behavior:"smooth"})
+    }
+})
+
+
+
