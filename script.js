@@ -55,4 +55,21 @@ tabContainer.addEventListener("click", function (evt) {
 })
 
 
+const nav = document.querySelector(".nav")
+const handleHover = function (evt) {
+    if (evt.target.classList.contains("nav__link")) {
+        const siblings = evt.target.closest(".nav").querySelectorAll(".nav__link")
+        const logo = evt.target.closest(".nav").querySelector("img")
+
+        siblings.forEach(e => {
+            if (e !== evt.target) {
+                e.style.opacity = this
+            }
+        })
+        logo.style.opacity = op
+    }
+}
+
+nav.addEventListener("mouseover", handleHover.bind(0.5))
+nav.addEventListener("mouseout", handleHover.bind(1))
 
