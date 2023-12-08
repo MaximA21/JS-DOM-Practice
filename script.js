@@ -85,3 +85,15 @@ const navHeight = nav.getBoundingClientRect().height
 const headerOberserver = new IntersectionObserver(obsCallback, {root: null, threshold: 0, rootMargin: `-${navHeight}px`})
 headerOberserver.observe(document.querySelector(".header"))
 
+const allSections = document.querySelectorAll(".section")
+const revealSection = function (entries, observer) {
+    const [entry] = entries
+    if (!entry.isIntersecting) return
+    entry.target.classList.remove("section--hidden")
+    observer.unobserve(entry.target)
+}
+const sectionObserver = new IntersectionObserver(revealSection, {root: null, threshold: 0.2})
+allSections.forEach(sec => {
+    sectionObserver.observe(sec)
+    sec.classList.add("section--hidden")
+})
